@@ -29,6 +29,6 @@ class CreateCompteRenduTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_compte_rendu');
+        Schema::dropIfExists('compte_rendu');
     }
 }

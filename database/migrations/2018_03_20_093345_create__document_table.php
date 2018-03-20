@@ -28,6 +28,6 @@ class CreateDocumentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_document');
+        Schema::dropIfExists('document');
     }
 }

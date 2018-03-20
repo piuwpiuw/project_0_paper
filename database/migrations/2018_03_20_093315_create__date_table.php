@@ -26,6 +26,6 @@ class CreateDateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_date');
+        Schema::dropIfExists('date');
     }
 }

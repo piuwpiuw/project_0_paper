@@ -28,6 +28,6 @@ class CreateSuperAdminTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_super_admin');
+        Schema::dropIfExists('super_admin');
     }
 }

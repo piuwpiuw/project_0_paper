@@ -28,6 +28,6 @@ class CreateFseTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_fse');
+        Schema::dropIfExists('fse');
     }
 }

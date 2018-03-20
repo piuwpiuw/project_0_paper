@@ -26,6 +26,6 @@ class CreateQuestionnaireCreateurTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_questionnaire_createur');
+        Schema::dropIfExists('questionnaire_createur');
     }
 }

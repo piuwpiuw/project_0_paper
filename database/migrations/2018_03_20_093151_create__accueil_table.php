@@ -32,6 +32,6 @@ class CreateAccueilTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_accueil');
+        Schema::dropIfExists('accueil');
     }
 }

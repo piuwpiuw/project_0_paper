@@ -32,6 +32,6 @@ class CreateConseillerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_conseiller');
+        Schema::dropIfExists('conseiller');
     }
 }

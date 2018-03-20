@@ -31,6 +31,6 @@ class CreateSituationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_situation');
+        Schema::dropIfExists('situation');
     }
 }
