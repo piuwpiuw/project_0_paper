@@ -1,0 +1,4 @@
+git pull https://github.com/piuwpiuw/project_0_paper
+composer install
+php artisan key:generate
+
