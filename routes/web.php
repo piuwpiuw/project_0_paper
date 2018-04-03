@@ -13,4 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+// Route::get('/', 'HomeController@index');
+
+Route::get('/admin/dashboard','SuperAdminController@index');
+Route::post('/admin/dashboard/conseiller/add','ConseillerController@create');
