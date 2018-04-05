@@ -11,6 +11,16 @@
 |
 */
 
-Auth::routes();
+// le jeune
+Route::get ('/jeune/erreur/{message}', 'JeuneController@error');
 
-Route::get('/', 'HomeController@index');
+Route::get ('/jeune/creation', 'JeuneController@create');
+Route::post ('/jeune/creation', 'JeuneController@store');
+
+Route::get ('/jeune/login', 'JeuneController@login');
+Route::post ('/jeune/login', 'JeuneController@validLogin');
+
+Route::get ('/jeune/home', 'JeuneController@home');
+
+Route::get ('/jeune', 'JeuneController@index');
+Route::get ('/', 'JeuneController@index');

@@ -1,0 +1,72 @@
+/*
+author: Deborah Powers
+job: Dev Web
+school: Simplon Lieusaint
+creation: 2017/10/28
+update: 2018/03/14
+*/
+/* general */
+body * {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 1mm;
+	box-sizing: border-box;
+	font-size: 100%;
+	line-height: 6mm;
+	font-family: serif;
+	text-decoration: none;
+	color: black;
+}
+body {
+	margin: auto;
+	padding: 1%;
+}
+h1 {
+	text-align: center;
+	font-size: 180%;
+	font-weight: bold;
+}
+h2 { margin: 8mm; }
+ul { margin-left: 2cm; }
+a { display: block; }
+img { font-size: 150%; }
+hr {
+	background-color: #777;
+	border: none;
+	height: 1mm;
+	margin-top: 6mm;
+	margin-bottom: 6mm;
+}
+/* boutons */
+button, a.button, input, textarea {
+	text-align: center;
+	border: 1px solid #777;
+	background-color: #EEE;
+	padding: 1mm;
+	border-radius: 1mm;
+}
+button, a.button, input[type='button'], input[type='submit'] {
+	color: #777;
+	background-color: #EEE;
+	min-width: 1cm;
+	min-height: 1cm;
+}
+textarea {
+	width: 100%;
+	height: 8cm;
+	background: none;
+	text-align: left;
+}
+/* nouveau type de table */
+.row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+	min-height: 1cm;
+}
+.col {
+	display: inline-flex;
+	flex-direction: column;
+	min-width: 1cm;
+}
