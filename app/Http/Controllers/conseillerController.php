@@ -14,7 +14,9 @@ class conseillerController extends Controller
      */
     public function index()
     {
-        //
+        $value = session('user');
+        
+        return view('add_conseiller')->with('session', $value);
     }
 
     /**
@@ -89,5 +91,19 @@ class conseillerController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function connect(){
+        return view('login');
+    }
+
+    public function login(Request $request){
+        $user = conseiller::where('mail_conseiller',$request['mail'])->first();
+        if($user != NULL && password_verify($request['password'],$user->password_conseiller) ){
+            session(["user" => $user]);
+            return redirect('conseiller');
+        }
+        else{
+            return 'bad mdp';
+        }
     }
 }

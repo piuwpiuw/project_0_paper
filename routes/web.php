@@ -19,3 +19,10 @@ Route::get('/', 'HomeController@index');
 
 Route::post('/conseiller/create','conseillerController@create');
 
+
+// Route::get('/', 'JeuneController@index');
+Route::get('/login', 'conseillerController@connect');
+Route::post('login', 'conseillerController@login');
+
+Route::post('/jeune/dashboard_account/update','JeuneController@updateFiche');
+

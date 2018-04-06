@@ -1,3 +1,4 @@
+'use strict';
 let mix = require('laravel-mix');
 
 /*
