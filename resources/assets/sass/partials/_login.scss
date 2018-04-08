@@ -1,14 +1,14 @@
 body {
- background-image: url("background.jpg");
- background-size: 1420px 675px;
 
- background-repeat: no-repeat;
- max-width: 100%;
-   height: auto;
-   font-family: 'Hi Melody', cursive;
+  font-family: 'Hi Melody', cursive;
+  background: linear-gradient(rgb(211, 215, 217), rgb(228, 233, 235)) ;
+    // padding: 60px 60px 60px 60px;
+//  margin: 30px 40px 30px 40px;
 
 }
-
+* {
+  box-sizing: border-box;
+}
 
 .home {
 
@@ -16,11 +16,6 @@ body {
  padding: 60px 60px 60px 60px;
   margin: 30px 40px 30px 40px;
 
- 
- * {
-   box-sizing: border-box;
-}
- 
  &__container {
       padding: 15px;
 

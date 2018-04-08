@@ -1,6 +1,7 @@
+
+<!-- <div class="home"> -->
 @extends('layouts.container')
 @section('content')
-<div class="home">
     <div class="home__container">
        	<div class="home__form">
 		    <div class="home__logo"><img src="{{asset('css/logo.png')}}" style="width:80px;"></div>
@@ -31,6 +32,7 @@
         		</div>
         	</div>
         </div>
-    </div>
-</div>
-@endsection
+	</div>
+	@endsection
+
+<!-- </div> -->

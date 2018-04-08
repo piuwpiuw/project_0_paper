@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 @import url("https://fonts.googleapis.com/css?family=Maven+Pro:900");
 body {
-  margin: 0 0 40vw;
+  margin: 0;
   position: relative;
 }
 
@@ -154,22 +154,18 @@ ol, ul {
 }
 
 body {
-  background-image: url("background.jpg");
-  background-size: 1420px 675px;
-  background-repeat: no-repeat;
-  max-width: 100%;
-  height: auto;
   font-family: 'Hi Melody', cursive;
+  background: linear-gradient(#d3d7d9, #e4e9eb);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .home {
   box-sizing: border-box;
   padding: 60px 60px 60px 60px;
   margin: 30px 40px 30px 40px;
-}
-
-.home * {
-  box-sizing: border-box;
 }
 
 .home__container {

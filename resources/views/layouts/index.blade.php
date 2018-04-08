@@ -14,8 +14,6 @@
 
 <body>
 
-@yield('register')
-@yield('update')
 @yield('dashboard-conseiller')
 
 </body>
