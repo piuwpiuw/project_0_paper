@@ -11,8 +11,10 @@
 |
 */
 
-Auth::routes();
+// le jeune
+Route::get ('/jeune/erreur/{message}', 'JeuneController@error');
 
+<<<<<<< HEAD
 Route::get('/conseiller', 'conseillerController@index');
 
 Route::get('/', 'HomeController@index');
@@ -26,3 +28,15 @@ Route::post('login', 'conseillerController@login');
 
 Route::post('/jeune/dashboard_account/update','JeuneController@updateFiche');
 
+=======
+Route::get ('/jeune/creation', 'JeuneController@create');
+Route::post ('/jeune/creation', 'JeuneController@store');
+
+Route::get ('/jeune/login', 'JeuneController@login');
+Route::post ('/jeune/login', 'JeuneController@validLogin');
+
+Route::get ('/jeune/home', 'JeuneController@home');
+
+Route::get ('/jeune', 'JeuneController@index');
+Route::get ('/', 'JeuneController@index');
+>>>>>>> 47aff716a246693742b18da5c579f0ebe9896a0d
