@@ -27,7 +27,7 @@ class JeuneController extends Controller
             return $this->error ("Le jeune n°$idJeune n'a pas ete trouve dans la bdd");
         else return view ('jeune.home')->with ('jeune', $jeuneList[0]);
     }
-    public function show ($jeune){
+    private function show ($jeune){
         if (! $jeune) return $this->error ("Le jeune n'a pas ete trouve");
         // TODO verifier si le jeune a rempli sa fiche
         else return redirect()->route ('jeuneHome', $jeune);
