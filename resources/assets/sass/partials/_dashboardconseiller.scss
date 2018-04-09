@@ -1,27 +1,20 @@
-@import url('https://fonts.googleapis.com/css?family=Maven+Pro:900');
+@import 'vars/fonts';
 
-body {
-    margin: 0;
-  }
-  
-  ol, ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .container {
+
+  .block-dashboard {
     display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
   }
   .menu {
-    width: 14vw; 
     height: 100vh;
-    background-color: #3E4B5A;
+    background-color: rgb(54, 63, 80);
 
    
     &__logo {
       width: 100%;  
       height: 20vh;
-      background-color: #3E4B5A;
       display: flex;
       border-bottom: 3px solid #313645;
 
@@ -36,31 +29,29 @@ body {
       display: flex;      
       flex-flow: column nowrap;
       align-items: flex-start;
-      border-top: 2px solid #525766;
+      border-top: 2px solid #444855;
       color: #939CB9;
       padding: 2vw 0;
       border-bottom: 3px solid #313645;
 
       &-title {
-        font-family: 'Maven Pro', sans-serif;
-        letter-spacing: 0.1vw;
+        @extend .upper-text;
+
         margin-left: 1.5vw;
         margin-bottom: 2vw;
-        font-size: 1vw;
         color: rgba(147, 156, 185, 0.5);
       }
     }
 
     &__item {
+      @extend .upper-text;
+
       border-left: none;
       padding: 1vw 1vw;
       width: 100%;
-      font-size: 0.8vw;
-      text-transform: uppercase;
-      font-family: 'Maven Pro', sans-serif;
-      letter-spacing: 0.1vw;
-      border-left: 4px solid #3E4B5A;
-
+      font-size: 0.9vw;
+      border-left: 4px solid rgb(54, 63, 80);
+      margin-right: 3vw;
 
       &-icon {
         margin-right: 1vw;
@@ -76,7 +67,7 @@ body {
 
     &__bottom {
       height: 5vw;
-      border-top: 2px solid #525766;
+      border-top: 2px solid #444855;
     }
   }
 
@@ -113,9 +104,7 @@ body {
         font-size: 1vw;
         margin-right: 2vw;
       }
-    }
-
-    
+    } 
   }
 
   &__navbar {
@@ -146,10 +135,51 @@ body {
     }   
   }
   &__infos {
-    width: auto;
     border-top: 2px solid #D7DAE5;
-    height: 70vh;
-    background-color: #F7FDFF;
+    height: 100%;
+    padding-top: 3vw;
+    background-color: rgb(229, 243, 248);
     
+    &-container {
+      width: 50%;
+      margin-left: 12%;
+      background-color: #fff;
+      border-radius: 3px;
+    }
+  }
+
+  &__title {
+    @extend .upper-text;
+
+    background-color: rgb(101, 118, 151);
+    padding: 1vw 0;
+    padding-left: 5vw;
+    color: #ffffff;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    
+  }
+  &__profil {
+    display: flex;
+    flex-flow: row wrap;
+
+    &-block {
+      width: 50%;
+      display: flex;      
+      color: rgb(101, 118, 151);
+      padding: 2vw 5vw;
+    } 
+
+    &-sub {
+    @extend .upper-text;
+    font-size: 1vw;
+    }
+
+    &-text {
+      font-size: 1vw;
+      font-family: Roboto;
+      margin-left: 2vw;
+      text-transform: capitalize;
+    }
   }
 }
