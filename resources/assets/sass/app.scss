@@ -4,6 +4,21 @@
 
 // Variables
 @import "variables";
+@import 'vars/colors';
+@import 'vars/shadow';
+@import 'vars/fonts';
+
 
 // Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+//@import "~bootstrap-sass/assets/stylesheets/bootstrap"; 
+
+//import mixins
+@import 'mixins/mixins';
+
+//import genral style
+@import 'styles/general';
+
+ //import partials
+@import 'partials/register';
+@import 'partials/dashboardconseiller';
+//import fonts icomoon
