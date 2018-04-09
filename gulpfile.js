@@ -5,7 +5,8 @@ var elixir = require('laravel-elixir');
 var BrowserSync = require('laravel-elixir-browsersync');
 
 elixir(function(mix) {
-  mix.browserSync({
+  mix.sass('app.scss')
+  .browserSync({
   	proxy:'http://127.0.0.1:8000/'
   });
 });
