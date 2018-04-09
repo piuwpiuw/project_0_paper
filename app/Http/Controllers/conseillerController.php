@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\conseiller;
+use App\Jeune;
 
 class conseillerController extends Controller
 {
@@ -97,19 +98,38 @@ class conseillerController extends Controller
     }
 
     public function login(Request $request){
-        $user = conseiller::where('mail_conseiller',$request['mail'])->first();
-        if($user != NULL){
-            if(password_verify($request['password'],$user->password_conseiller)){
-                session(["user" => $user]);
-                return redirect('/conseiller/dashboard_jeunes');
+        $typeMail = stripos($request['mail'],"mdef-senart");
+        echo $typeMail;
+        if($typeMail != NULL){
+            $user = conseiller::where('mail_conseiller',$request['mail'])->first();
+            if($user != NULL){
+                if(password_verify($request['password'],$user->password_conseiller)){
+                    session(["user" => $user]);
+                    return redirect('/conseiller/dashboard_jeunes');
+                }
+                else{
+                    return 'bad mdp';
+                } 
             }
             else{
-                return 'bad mdp';
-            } 
+                return 'utilisateur pas trouvé';
+            }
         }
         else{
-            return 'utilisateur pas trouvé';
+            $jeune = Jeune::where ('mail_jeune', $request['mail'])->first();
+            if ($jeune == NULL)
+                return $request['mail'];
+            else{
+                $password = $jeune->password_jeune;
+                if ($password != $request['password'])
+                    return redirect()->action ('JeuneController@error', ['errorMessage' => 'Le mot de passe ne correspond pas au mail']);
+                else{
+                    session(['user'=> $jeune]);
+                    return redirect()->action ('JeuneController@home');
+                } 
+            }
         }
+        
         
     }
 }

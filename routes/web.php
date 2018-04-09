@@ -17,12 +17,11 @@ Route::get ('/jeune/erreur/{message}', 'JeuneController@error');
 
 Route::get('/conseiller', 'conseillerController@index');
 
-Route::get('/', 'HomeController@index');
 
 Route::post('/conseiller/create','conseillerController@create');
 
 
-Route::get('/login', 'conseillerController@connect');
+Route::get('/', 'conseillerController@connect');
 Route::post('login', 'conseillerController@login');
 
 Route::post('/jeune/dashboard_account/update','JeuneController@updateFiche');
@@ -37,9 +36,10 @@ Route::post ('/jeune/login', 'JeuneController@validLogin');
 Route::get ('/jeune/home', 'JeuneController@home');
 
 Route::get ('/jeune', 'JeuneController@index');
-Route::get ('/', 'JeuneController@index');
+
  
 
 Route::get('/conseiller/dashboard_jeunes', function(){
-	return view('pages.dashboard-conseiller');
+	$session = session('user');
+	return view('pages.dashboard-conseiller')->with('zbla',$session);
 });
