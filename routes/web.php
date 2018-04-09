@@ -1,26 +1,17 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-// le jeune
+//		le jeune
+// login
+Route::get ('/jeune', 'JeuneController@login');
+Route::post ('/login', 'JeuneController@validLogin');
+// creer un compte (pas necessaire dans la version finale)
+Route::get ('/jeune/creer', 'JeuneController@create');
+Route::post ('/jeune/creer', 'JeuneController@store');
+// erreur
 Route::get ('/jeune/erreur/{message}', 'JeuneController@error');
-
-Route::get ('/jeune/creation', 'JeuneController@create');
-Route::post ('/jeune/creation', 'JeuneController@store');
-
-Route::get ('/jeune/login', 'JeuneController@login');
-Route::post ('/jeune/login', 'JeuneController@validLogin');
-
-Route::get ('/jeune/home', 'JeuneController@home');
-
-Route::get ('/jeune', 'JeuneController@index');
-Route::get ('/', 'JeuneController@index');
+// home (pas necessaire dans la version finale)
+Route::get ('/jeune/home/{jeune}', ['as' => 'jeuneHome', 'uses' => 'JeuneController@home']);
+// fiche d'accueil
+Route::get ('/jeune/accueil/{jeune}', 'JeuneController@reception');
+Route::post ('/jeune/accueil', 'JeuneController@receptionFill');

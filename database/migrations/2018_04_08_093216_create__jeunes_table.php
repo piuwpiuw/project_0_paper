@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJeuneTable extends Migration
+class CreateJeunesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateJeuneTable extends Migration
      */
     public function up()
     {
-        Schema::create('jeune', function (Blueprint $table) {
+        Schema::create('jeunes', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_conseiller');
             $table->string('mail_jeune');
-            $table->string('password_jeune'); 
-            $table->integer('id_conseiller');                  
+            $table->string('password_jeune');
             $table->timestamps();
         });
     }

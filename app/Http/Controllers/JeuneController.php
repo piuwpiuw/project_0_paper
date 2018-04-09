@@ -3,39 +3,49 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Jeune;
+use App\models\Jeune;
 
 class JeuneController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(){
-        return view ('jeune.index');
-    }
-    public function home ($jeune){
-        return view ('jeune.home')->with ('jeune', $jeune);
-    }
     // en cas d'erreur
     public function error ($errorMessage){
-        return view ('error')->with ('errorMessage', $errorMessage);
+        return view ('commun.error')->with ('errorMessage', $errorMessage);
+    }
+    // la fiche d'acceuil
+    public function reception(){
+        return view ('jeune.reception');
+    }
+    public function receptionFill ($idJeune){
+        // pour que le jeune remplisse sa fiche
+    }
+    // apres le login
+    // TODO extraire le nom du conseiller a partir de son id
+    public function home ($idJeune){
+        $jeuneList = Jeune::where ('id', 'LIKE', $idJeune)->get();
+        $nbYoung = count ($jeuneList);
+        if ($nbYoung ==0)
+            return $this->error ("Le jeune n°$idJeune n'a pas ete trouve dans la bdd");
+        else return view ('jeune.home')->with ('jeune', $jeuneList[0]);
+    }
+    public function show ($jeune){
+        if (! $jeune) return $this->error ("Le jeune n'a pas ete trouve");
+        // TODO verifier si le jeune a rempli sa fiche
+        else return redirect()->route ('jeuneHome', $jeune);
     }
     // le jeune se logue
     public function login(){
-        return view ('jeune.login');
+        return view ('commun.login');
     }
     public function validLogin(Request $request){
-        $jeuneList = Jeune::where ('mail_jeune', 'LIKE', $request->mail_jeune)->get();
+        $jeuneList = Jeune::where ('mail_jeune', 'LIKE', $request->mail)->get();
         $nbYoung = count ($jeuneList);
         if ($nbYoung ==0)
-            return redirect()->action ('JeuneController@error', ['errorMessage' => "Aucun jeune n'est identifie avec ce mail"]);
+            return $this->error ("Aucun jeune n'est identifie avec ce mail");
         else{
             $password = $jeuneList[0]->password_jeune;
-            if ($password != $request->password_jeune)
-                return redirect()->action ('JeuneController@error', ['errorMessage' => 'Le mot de passe ne correspond pas au mail']);
-            else return redirect()->action ('JeuneController@home');
+            if ($password != $request->password)
+                return $this->error ("Le mot de passe ne correspond pas au mail");
+            else return $this->show ($jeuneList[0]);
         }
     }
     // creer un jeune
@@ -51,56 +61,15 @@ class JeuneController extends Controller
         $jeuneList = Jeune::where ('mail_jeune', 'LIKE', $request->mail_jeune)->get();
         $nbYoung = count ($jeuneList);
         if ($nbYoung >0){
-            return redirect()->action ('JeuneController@error', ['errorMessage' => 'Un jeune utilise deja ce mail']);
+            return $this->error ("Un jeune utilise deja ce mail");
         }
         else{
             $jeune = Jeune::create ([
+                'id_conseiller'     => $request->id_conseiller,
                 'mail_jeune'        => $request->mail_jeune,
-                'password_jeune'    => $request->password_jeune,
-                'id_conseiller'     => $request->id_conseiller
+                'password_jeune'    => $request->password_jeune
             ]);
-            return redirect()->action ('JeuneController@home');
+            return $this->home ($jeune);
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id){
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id){
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id){
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id){
-        //
     }
 }
