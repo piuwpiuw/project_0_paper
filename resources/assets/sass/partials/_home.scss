@@ -1,0 +1,88 @@
+body {
+ background-image: url("background.jpg");
+ background-size: 1420px 675px;
+
+ background-repeat: no-repeat;
+ max-width: 100%;
+   height: auto;
+   font-family: 'Hi Melody', cursive;
+
+}
+
+
+.home {
+
+  box-sizing: border-box;
+ padding: 60px 60px 60px 60px;
+  margin: 30px 40px 30px 40px;
+
+ 
+ * {
+   box-sizing: border-box;
+}
+ 
+ &__container {
+      padding: 15px;
+
+ }
+ 
+ &__form {
+  border-radius: 15px 0px 0px 15px ;
+   background-color:white;
+   width: 40%;
+   float: left;  
+    height: 70vh;
+   -webkit-box-shadow: 80px 23px 48px -26px rgba(0,0,0,0.91);
+   -moz-box-shadow: 80px 23px 48px -26px rgba(0,0,0,0.91);
+   box-shadow: 80px 23px 48px -26px rgba(0,0,0,0.91);
+
+
+ }
+ 
+ &__logo {
+   margin: left;
+   padding: 10px;
+ }
+
+ &__email {
+   width: 50%;
+   margin: auto;
+ }
+ 
+ &__text {
+   color:blue;
+ }
+ &__right {
+    width: 60%;
+   float: right;
+  height: 70vh;
+ }
+
+ &__image {
+    height: 70vh;
+ border-radius: 0px 15px 15px 0px;
+   background-image:url('lol.jpg');
+   -webkit-box-shadow: 25px 23px 48px -26px rgba(0,0,0,0.91);
+ -moz-box-shadow: 25px 23px 48px -26px rgba(0,0,0,0.91);
+ box-shadow: 25px 23px 48px -26px rgba(0,0,0,0.91);
+    display: flex;
+    background-size: cover;
+ }
+
+ &__title {
+
+   text-align: center;
+   margin: auto;
+   color: white;
+   color: white;
+    text-shadow: 2px 2px 5px #000000;
+ 
+ font-size: 40px;
+
+ &--message {
+   color: white;
+   opacity: 3;
+   text-shadow: 2px 2px 5px #000000;
+ }
+ }
+}

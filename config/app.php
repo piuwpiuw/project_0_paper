@@ -227,14 +227,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-<<<<<<< HEAD
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-=======
-        'Html' => Collective\Html\HtmlFacade::class,
-        'Form' => Collective\Html\FormFacade::class,
         'Input' => Illuminate\Support\Facades\Input::class,
->>>>>>> 47aff716a246693742b18da5c579f0ebe9896a0d
+
 
     ],
 

@@ -98,12 +98,18 @@ class conseillerController extends Controller
 
     public function login(Request $request){
         $user = conseiller::where('mail_conseiller',$request['mail'])->first();
-        if($user != NULL && password_verify($request['password'],$user->password_conseiller) ){
-            session(["user" => $user]);
-            return redirect('conseiller');
+        if($user != NULL){
+            if(password_verify($request['password'],$user->password_conseiller)){
+                session(["user" => $user]);
+                return redirect('/conseiller/dashboard_jeunes');
+            }
+            else{
+                return 'bad mdp';
+            } 
         }
         else{
-            return 'bad mdp';
+            return 'utilisateur pas trouvé';
         }
+        
     }
 }
