@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Jeune;
+use App\info_gen;
 
 use Illuminate\Support\Facades\DB;
 
@@ -34,7 +35,37 @@ class JeuneController extends Controller
         return view ('jeune.index');
     }
     public function home (){
-        return view ('jeune.home');
+        $jeune = session('user');
+        $info = info_gen::where('id_jeune', $jeune->id)->first();
+        if($info == NULL){
+            info_gen::create([
+                'civilite' => NULL,
+                'nom_jeune' => NULL,
+                'nomjeunefille_jeune' => NULL,
+                'prenom_jeune' => NULL,
+                'telfixe_jeune' => NULL,
+                'telportable_jeune' => NULL,
+                'datenaissance_jeune' => NULL,
+                'age_jeune' => NULL,
+                'lieunaissance_jeune' => NULL,
+                'adresse_jeune' => NULL,
+                'cp_jeune' => NULL,
+                'ville_jeune' => NULL,
+                'nationalite_jeune' => NULL,
+                'titresejour_jeune' => NULL,
+                'datevaliditesejour_jeune' => NULL,
+                'numero_pole_emploi' => NULL,
+                'situation_actuelle_jeune' => NULL,
+                'dategroupement_jeune' => NULL,
+                'lien_signature_jeune' => NULL,
+                'creation_entreprise' => NULL,
+                'renseignement_createur' => NULL,
+                'id_jeune' => $jeune->id
+            ]);
+            $info = info_gen::where('id_jeune', $jeune->id)->first();
+        }
+
+        return view ('jeune.home')->with('user',session('user'))->with('info',$info);
     }
     // en cas d'erreur
     public function error ($errorMessage){
@@ -45,15 +76,17 @@ class JeuneController extends Controller
         return view ('jeune.login');
     }
     public function validLogin(Request $request){
-        $jeuneList = Jeune::where ('mail_jeune', 'LIKE', $request->mail_jeune)->get();
-        $nbYoung = count ($jeuneList);
-        if ($nbYoung ==0)
-            return redirect()->action ('JeuneController@error', ['errorMessage' => "Aucun jeune n'est identifie avec ce mail"]);
+        $jeune = Jeune::where ('mail_jeune', $request->mail_jeune)->first();
+        if ($jeune == NULL)
+            return $request->mail_jeune;
         else{
-            $password = $jeuneList[0]->password_jeune;
+            $password = $jeune->password_jeune;
             if ($password != $request->password_jeune)
                 return redirect()->action ('JeuneController@error', ['errorMessage' => 'Le mot de passe ne correspond pas au mail']);
-            else return redirect()->action ('JeuneController@home');
+            else{
+                session(['user'=> $jeune]);
+                return redirect()->action ('JeuneController@home');
+            } 
         }
     }
     // creer un jeune
@@ -72,12 +105,13 @@ class JeuneController extends Controller
             return redirect()->action ('JeuneController@error', ['errorMessage' => 'Un jeune utilise deja ce mail']);
         }
         else{
+
             $jeune = Jeune::create ([
                 'mail_jeune'        => $request->mail_jeune,
                 'password_jeune'    => $request->password_jeune,
                 'id_conseiller'     => $request->id_conseiller
             ]);
-            return redirect()->action ('JeuneController@home');
+            return redirect()->url ('/');
         }
     }
 
@@ -108,8 +142,23 @@ class JeuneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id){
-        //
+        public function updateFiche(Request $request){
+     $date = date('Y-m-d H:i:s');
+    info_gen::where('id_jeune',session('user')->id)->update([
+                'civilite' => $request['civilite'],
+                'nom_jeune' => $request['nom'],
+                'nomjeunefille_jeune' => $request['nomFille'],
+                'prenom_jeune' => $request['prenom'],
+                'telfixe_jeune' => $request['fixe'],
+                'telportable_jeune' => $request['portable'],
+                'datenaissance_jeune' => $request['date_naissance'],
+                'age_jeune' => $request['age'],
+                'lieunaissance_jeune' => $request['lieu_naissance'],
+                'adresse_jeune' => $request['adresse'],
+                'cp_jeune' => $request['cp'],
+                'ville_jeune' => $request['ville']
+            ]);
+    return redirect()->action ('JeuneController@home');
     }
 
     /**
