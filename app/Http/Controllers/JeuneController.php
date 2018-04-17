@@ -105,13 +105,13 @@ class JeuneController extends Controller
             return redirect()->action ('JeuneController@error', ['errorMessage' => 'Un jeune utilise deja ce mail']);
         }
         else{
-
+           
             $jeune = Jeune::create ([
                 'mail_jeune'        => $request->mail_jeune,
-                'password_jeune'    => $request->password_jeune,
-                'id_conseiller'     => $request->id_conseiller
+                'password_jeune'    => str_random(6),
+                'id_conseiller'     => session('user')->id
             ]);
-            return redirect()->url ('/');
+            return view('layouts.dashboard-conseiller.nouvel-inscrit');
         }
     }
 
