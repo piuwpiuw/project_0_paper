@@ -30,7 +30,11 @@
             </ul>
         </nav>
         <div class="dashboard__infos">
+        @foreach($jeunes as $jeune)
+        {{$jeune->nom_jeune}} {{$jeune->prenom_jeune}} {{$jeune->nom_conseiller}} <br/>
+        @endforeach
 
+        
         </div>
     </div>
 </div>

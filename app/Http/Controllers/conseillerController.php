@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\conseiller;
 use App\Jeune;
+use App\info_gen;
+use Illuminate\Support\Facades\DB;
 
 class conseillerController extends Controller
 {
@@ -128,8 +130,18 @@ class conseillerController extends Controller
                     return redirect()->action ('JeuneController@home');
                 } 
             }
-        }
-        
-        
+        }      
     }
+
+    public function dashboard(){
+        $session = session('user');
+        $jeunes = DB::table('jeunes')
+                ->join('info_gens', 'jeunes.id', '=', 'info_gens.id_jeune')
+                ->join('conseillers', 'jeunes.id_conseiller', '=', 'conseillers.id')
+                ->select('jeunes.*','info_gens.*', 'conseillers.nom_conseiller')
+                ->get();
+        return view('pages.dashboard-conseiller')->with('zbla',$session)->with('jeunes',$jeunes);
+        // $zeropaper = DB::table('jeunes') ->leftJoin('mail_jeune', '=', 'jeunes.mail_jeune') ->get();
+    }
+
 }
