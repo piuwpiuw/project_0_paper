@@ -1,12 +1,32 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 @import url("https://fonts.googleapis.com/css?family=Maven+Pro:900");
-body {
-  margin: 0;
-  position: relative;
+@import url("https://fonts.googleapis.com/css?family=Maven+Pro:900");
+.upper-text, .menu__list-title, .menu__item, .dashboard__title, .dashboard__profil-sub {
+  font-family: "Maven Pro", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2vw;
+  letter-spacing: 0.1vw;
+  color: #939CB9;
 }
 
-body {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 ol, ul {
@@ -15,20 +35,33 @@ ol, ul {
   padding: 0;
 }
 
-.container {
+.upper-text, .menu__list-title, .menu__item, .dashboard__title, .dashboard__profil-sub {
+  font-family: "Maven Pro", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2vw;
+  letter-spacing: 0.1vw;
+  color: #939CB9;
+}
+
+a {
+  text-decoration: none;
+}
+
+.block-dashboard {
   display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .menu {
-  width: 14vw;
   height: 100vh;
-  background-color: #3E4B5A;
+  background-color: #363f50;
 }
 
 .menu__logo {
   width: 100%;
   height: 20vh;
-  background-color: #3E4B5A;
   display: flex;
   border-bottom: 3px solid #313645;
 }
@@ -43,18 +76,15 @@ ol, ul {
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
-  border-top: 2px solid #525766;
+  border-top: 2px solid #444855;
   color: #939CB9;
   padding: 2vw 0;
   border-bottom: 3px solid #313645;
 }
 
 .menu__list-title {
-  font-family: 'Maven Pro', sans-serif;
-  letter-spacing: 0.1vw;
   margin-left: 1.5vw;
   margin-bottom: 2vw;
-  font-size: 1vw;
   color: rgba(147, 156, 185, 0.5);
 }
 
@@ -62,11 +92,9 @@ ol, ul {
   border-left: none;
   padding: 1vw 1vw;
   width: 100%;
-  font-size: 0.8vw;
-  text-transform: uppercase;
-  font-family: 'Maven Pro', sans-serif;
-  letter-spacing: 0.1vw;
-  border-left: 4px solid #3E4B5A;
+  font-size: 0.9vw;
+  border-left: 4px solid #363f50;
+  margin-right: 3vw;
 }
 
 .menu__item-icon {
@@ -80,9 +108,15 @@ ol, ul {
   color: #ffffff;
 }
 
+.menu__item:active {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-left: 4px solid #75C8FF;
+  color: #ffffff;
+}
+
 .menu__bottom {
   height: 5vw;
-  border-top: 2px solid #525766;
+  border-top: 2px solid #444855;
 }
 
 .dashboard {
@@ -107,10 +141,13 @@ ol, ul {
   height: 5vw;
 }
 
+.dashboard__header-deconnect {
+  color: #939CB9;
+}
+
 .dashboard__header-deconnect-text {
   display: inline;
-  font-size: vw;
-  margin-right: 1vw;
+  margin-right: 0.5vw;
 }
 
 .dashboard__header-deconnect-icon {
@@ -119,9 +156,11 @@ ol, ul {
 }
 
 .dashboard__navbar {
+  display: flex;
   width: auto;
-  padding-top: 4vw;
+  height: 9vw;
   background-color: #ffffff;
+  border-bottom: 2px solid #D7DAE5;
 }
 
 .dashboard__navbar-container {
@@ -147,70 +186,178 @@ ol, ul {
 }
 
 .dashboard__infos {
-  width: auto;
-  border-top: 2px solid #D7DAE5;
-  height: 70vh;
-  background-color: #F7FDFF;
+  height: 100%;
+  background-color: #e5f3f8;
 }
 
-body {
-  font-family: 'Hi Melody', cursive;
-  background: linear-gradient(#d3d7d9, #e4e9eb);
+.dashboard__infos-container {
+  width: 60%;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #d4d4d4;
+  margin-top: 3vw;
 }
 
-* {
-  box-sizing: border-box;
+.dashboard__title {
+  background-color: #657697;
+  padding: 1vw 0;
+  color: #ffffff;
+  text-align: center;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
-.home {
-  box-sizing: border-box;
-  padding: 60px 60px 60px 60px;
-  margin: 30px 40px 30px 40px;
+.dashboard__profil {
+  display: flex;
+  flex-flow: row wrap;
 }
 
-.home__container {
-  padding: 15px;
+.dashboard__profil-block {
+  display: flex;
+  color: #657697;
+  padding: 2vw 5vw;
 }
 
-.home__form {
-  border-radius: 15px 0px 0px 15px;
+.dashboard__profil-sub {
+  font-size: 1vw;
+}
+
+.dashboard__profil-text {
+  font-size: 1vw;
+  font-family: Roboto;
+  margin-left: 2vw;
+  text-transform: capitalize;
+}
+
+.dashboard__advisor-form {
+  display: flex;
+}
+
+.dashboard__advisor-form-block {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+.dashboard__advisor-form-input {
+  width: 20vw;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #c9c9c9;
+  padding: 0.5vw 0;
+  font-family: roboto;
+  color: #657697;
+  font-size: 1vw;
+}
+
+.dashboard__advisor-form-input::-webkit-input-placeholder {
+  color: #c9c9c9;
+}
+
+.dashboard__advisor-form-input:-ms-input-placeholder {
+  color: #c9c9c9;
+}
+
+.dashboard__advisor-form-input::placeholder {
+  color: #c9c9c9;
+}
+
+.dashboard__advisor-form-btn {
+  width: 14vw;
+  margin: 2vw auto;
+  display: block;
+  background-color: #75C8FF;
+  border: none;
+  padding: 0.5vw 0;
+  border-radius: 3px;
+  color: #fff;
+  font-family: roboto;
+  letter-spacing: 0.1vw;
+  font-size: 1.2vw;
+}
+
+.flex-container {
+  display: flex;
+  width: 80vw;
+}
+
+.login {
+  background: linear-gradient(#b2e3fe, #e4e9eb);
+  height: 100%;
+}
+
+.login__container {
+  padding: 60px 60px;
+}
+
+@media screen and (max-width: 630px) {
+  .login__container {
+    padding: auto;
+    margin: auto;
+    height: 70%;
+    width: 100%;
+  }
+}
+
+.login__form {
   background-color: white;
   width: 40%;
-  float: left;
   height: 70vh;
+  border-radius: 15px 0px 0px 15px;
   box-shadow: 80px 23px 48px -26px rgba(0, 0, 0, 0.91);
 }
 
-.home__logo {
+@media screen and (max-width: 630px) {
+  .login__form {
+    height: 60vh;
+    width: 100%;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 25px 23px 48px -26px rgba(0, 0, 0, 0.91);
+  }
+}
+
+.login__logo {
   margin: left;
   padding: 10px;
 }
 
-.home__email {
+.login__email {
   width: 50%;
   margin: auto;
 }
 
-.home__text {
-  color: blue;
+@media screen and (max-width: 630px) {
+  .login__email {
+    height: 50vh;
+    width: 60%;
+  }
 }
 
-.home__right {
+@media screen and (max-height: 500px) {
+  .login__email {
+    height: 30vh;
+  }
+}
+
+.login__right {
   width: 60%;
   float: right;
   height: 70vh;
-}
-
-.home__image {
-  height: 70vh;
-  border-radius: 0px 15px 15px 0px;
   background-image: url("lol.jpg");
-  box-shadow: 25px 23px 48px -26px rgba(0, 0, 0, 0.91);
   display: flex;
   background-size: cover;
+  border-radius: 0px 15px 15px 0px;
+  box-shadow: 25px 23px 48px -26px rgba(0, 0, 0, 0.91);
 }
 
-.home__title {
+@media screen and (max-width: 630px) {
+  .login__right {
+    display: none;
+  }
+}
+
+.login__title {
   text-align: center;
   margin: auto;
   color: white;
@@ -219,7 +366,7 @@ body {
   font-size: 40px;
 }
 
-.home__title--message {
+.login__title--message {
   color: white;
   opacity: 3;
   text-shadow: 2px 2px 5px #000000;
