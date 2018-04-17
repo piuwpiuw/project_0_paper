@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:900');
+
+$t-main: 'Maven Pro', sans-serif;
+
+.upper-text {
+    font-family: $t-main;
+    text-transform: uppercase;
+    font-size: 1.2vw;
+    letter-spacing: 0.1vw;
+    color: #939CB9;
+
+}

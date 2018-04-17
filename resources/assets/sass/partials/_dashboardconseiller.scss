@@ -1,5 +1,9 @@
 @import 'vars/fonts';
 
+a {
+  text-decoration: none;
+}
+
 
   .block-dashboard {
     display: flex;
@@ -53,12 +57,19 @@
       border-left: 4px solid rgb(54, 63, 80);
       margin-right: 3vw;
 
+
+
       &-icon {
         margin-right: 1vw;
         font-size: 1.4vw;
       }
 
       &:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-left: 4px solid #75C8FF;
+        color: #ffffff;
+      }
+      &:active {
         background-color: rgba(0, 0, 0, 0.3);
         border-left: 4px solid #75C8FF;
         color: #ffffff;
@@ -92,12 +103,11 @@
     }
 
     &-deconnect {
-      // display: flex;
+      color: #939CB9;
 
       &-text {
         display: inline;
-        font-size: vw;
-        margin-right: 1vw;
+        margin-right: 0.5vw;
       }
 
       &-icon {
@@ -108,9 +118,12 @@
   }
 
   &__navbar {
+    display: flex;
     width: auto;
-    padding-top: 4vw;
+    height: 9vw;
     background-color: #ffffff;
+    border-bottom: 2px solid #D7DAE5;
+
 
     &-container {
       margin: 0 5vw;
@@ -135,16 +148,20 @@
     }   
   }
   &__infos {
-    border-top: 2px solid #D7DAE5;
     height: 100%;
-    padding-top: 3vw;
     background-color: rgb(229, 243, 248);
+
+    &-block {
+      
+    }
     
     &-container {
-      width: 50%;
-      margin-left: 12%;
+      width: 60%;
+      margin: auto;
       background-color: #fff;
       border-radius: 3px;
+      border: 1px solid #d4d4d4;
+      margin-top: 3vw;
     }
   }
 
@@ -153,8 +170,8 @@
 
     background-color: rgb(101, 118, 151);
     padding: 1vw 0;
-    padding-left: 5vw;
     color: #ffffff;
+    text-align: center;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     
@@ -164,8 +181,7 @@
     flex-flow: row wrap;
 
     &-block {
-      width: 50%;
-      display: flex;      
+      display: flex;
       color: rgb(101, 118, 151);
       padding: 2vw 5vw;
     } 
@@ -182,4 +198,49 @@
       text-transform: capitalize;
     }
   }
+
+  &__advisor-form {
+    display: flex;
+
+    &-block {
+      margin: auto;
+      width: 50%;
+      text-align: center;
+    }
+
+    &-input {
+      width: 20vw;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid #c9c9c9;
+      padding: 0.5vw 0;
+      font-family: roboto;
+      color: rgb(101, 118, 151);
+      font-size: 1vw; 
+
+      &::placeholder {
+        color: #c9c9c9;
+      }
+    }
+
+    &-btn {
+      width: 14vw;
+      margin: 2vw auto;
+      display: block;    
+      background-color: #75C8FF;
+      border: none;
+      padding: 0.5vw 0;
+      border-radius: 3px;
+      color: #fff;
+      font-family: roboto;
+      letter-spacing: 0.1vw;
+      font-size: 1.2vw;
+
+    }
+  }
+}
+
+.flex-container {
+  display: flex;
+  width: 80vw;
 }
