@@ -140,7 +140,7 @@ class conseillerController extends Controller
                 ->join('conseillers', 'jeunes.id_conseiller', '=', 'conseillers.id')
                 ->select('jeunes.*','info_gens.*', 'conseillers.nom_conseiller')
                 ->get();
-        return view('pages.dashboard-conseiller')->with('zbla',$session)->with('jeunes',$jeunes);
+        return view('layouts.dashboard-conseiller.mes-jeunes')->with('user',$session)->with('jeunes',$jeunes);
         // $zeropaper = DB::table('jeunes') ->leftJoin('mail_jeune', '=', 'jeunes.mail_jeune') ->get();
     }
 
