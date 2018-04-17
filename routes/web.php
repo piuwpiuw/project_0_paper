@@ -28,7 +28,6 @@ Route::post('/jeune/dashboard_account/update','JeuneController@updateFiche');
 
 
 Route::get ('/jeune/creation', 'JeuneController@create');
-Route::post ('/jeune/creation', 'JeuneController@store');
 
 Route::get ('/jeune/login', 'JeuneController@login');
 Route::post ('/jeune/login', 'JeuneController@validLogin');
@@ -41,5 +40,24 @@ Route::get ('/jeune', 'JeuneController@index');
 
 Route::get('/conseiller/dashboard_jeunes', function(){
 	$session = session('user');
-	return view('pages.dashboard-conseiller')->with('zbla',$session);
+	return view('layouts.dashboard-conseiller.navbar')->with('user',$session);
+});
+
+Route::get('/conseiller/dashboard_jeunes/ajouter', function(){
+	$session = session('user');
+	return view('layouts.dashboard-conseiller.nouvel-inscrit')->with('user',$session);
+});
+
+Route::post('/conseiller/dashboard_jeunes/ajouter', "JeuneController@store");
+
+Route::get('/conseiller/dashboard_jeunes/liste_complete', function() {
+	$session = session('user');
+	return view('layouts.dashboard-conseiller.liste-complete');
+});
+
+Route::get('/conseiller/dashboard_jeunes/mes-jeunes', "conseillerController@dashboard");
+
+Route::get('/conseiller/dashboard_profil', function() {
+	$session = session('user');
+	return view('layouts.dashboard-conseiller.profil')->with('user',$session);;
 });
