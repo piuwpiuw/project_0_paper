@@ -39,7 +39,7 @@ hr {
 }
 /* boutons */
 button, a.button, input, textarea {
-	text-align: center;
+	
 	border: 1px solid #777;
 	background-color: #EEE;
 	padding: 1mm;

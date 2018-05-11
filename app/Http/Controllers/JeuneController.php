@@ -158,7 +158,8 @@ class JeuneController extends Controller
                 'cp_jeune' => $request['cp'],
                 'ville_jeune' => $request['ville']
             ]);
-    return redirect()->action ('JeuneController@home');
+    // return redirect()->action ('JeuneController@home');
+    return view('jeune.merci');
     }
 
     /**

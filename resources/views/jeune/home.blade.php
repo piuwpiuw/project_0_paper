@@ -3,26 +3,26 @@
 Page de l'étudiant
 @endsection
 @section('content')
-	<h1>Coucou, je suis la page d'accueil du jeune</h1>
+	<h1>Merci de bien vouloir remplir les champs ci-dessous:</h1>
 	<br/><br/>
 
-	{!! Form::open(['url' => 'jeune/dashboard_account/update', 'files' => true]) !!}
-		Civilité MME{!! Form::radio('civilite','MME') !!} M{!! Form::radio('civilite','M') !!} <br/>
+	{!! Form::open(['url' => 'jeune/dashboard_account/update', 'files' => true]) !!}<br/>
+		MME{!! Form::radio('civilite','MME') !!} &nbsp;M{!! Form::radio('civilite','M') !!} <br/><br/>
 
-		Prenom {!! Form::text('prenom',$info->prenom_jeune) !!}<br/>
-		Nom {!! Form::text('nom',$info->nom_jeune) !!}<br/>
-		Nom de jeune Fille {!! Form::text('nomFille',$info->nomjeunefille_jeune) !!}<br/>	
-		Lieu d'accueil {!! Form::text('lieu') !!}<br/>
-		Comment avez-vous connu la Mission Locale ? {!! Form::text('mission') !!}<br/>
-		Né(e) le :  {!! Form::date('date_naissance',$info->datenaissance_jeune) !!}<br/>
-		Age :  {!! Form::text('age',$info->age_jeune) !!} ans<br/>
-		Lieu de naissance :  {!! Form::text('lieu_naissance',$info->lieunaissance_jeune) !!}<br/>
-		Adresse : {!! Form::text('adresse',$info->adresse_jeune) !!}<br/>
-		Code postal :  {!! Form::text('cp',$info->cp_jeune) !!}<br/>
-		Ville : {!! Form::text('ville',$info->ville_jeune) !!}<br/>
-		telephone fixe {!! Form::text('fixe',$info->telfixe_jeune) !!}<br/>
-		telephone portable {!! Form::text('portable',$info->telportable_jeune) !!}<br/>
-		email {!! Form::text('email',$user->mail_jeune) !!}<br/>
+		 {!! Form::text('prenom',$info->prenom_jeune, array('placeholder'=>'Prénom', 'id' => 'inputIconEx1')) !!}<br/><br/>
+		<br/> {!! Form::text('nom',$info->nom_jeune, array('placeholder'=>'Nom', 'id' => 'inputIconEx1')) !!}<br/><br/>
+		<br/> {!! Form::text('nomFille',$info->nomjeunefille_jeune, array('placeholder'=>'Nom De Jeune Fille', 'id' => 'inputIconEx1')) !!}<br/><br/>	
+		<br/> {!! Form::text('lieu','' ,array('placeholder'=>'Nom De Jeune Fille', 'id' => 'inputIconEx1')) !!}<br/><br/>
+		Comment avez-vous connu la Mission Locale ?<br/> {!! Form::text('mission') !!}<br/><br/>
+		Né(e) le :<br/>  {!! Form::date('date_naissance',$info->datenaissance_jeune) !!}<br/><br/>
+		<br/>  {!! Form::text('age',$info->age_jeune,  array('placeholder'=>'Age', 'id' => 'inputIconEx1')) !!} ans<br/><br/>
+		<br/>  {!! Form::text('lieu_naissance',$info->lieunaissance_jeune, array('placeholder'=>'Lieu De Naissance', 'id' => 'inputIconEx1')) !!}<br/><br/>
+		<br/> {!! Form::text('adresse',$info->adresse_jeune, array('placeholder'=>'Adresse', 'id' => 'inputIconEx1')) !!}<br/><br/>
+		<br/>  {!! Form::text('cp',$info->cp_jeune, array('placeholder'=>'Code Postal', 'id' => 'inputIconEx1')) !!}<br/><br/>
+		<br/> {!! Form::text('ville',$info->ville_jeune, array('placeholder'=>'Ville', 'id' => 'inputIconEx1')) !!}<br/><br/>
+		<br/> {!! Form::text('fixe',$info->telfixe_jeune, array('placeholder'=>'Téléphone Fixe', 'id' => 'inputIconEx1')) !!}<br/><br/>
+		<br/> {!! Form::text('portable',$info->telportable_jeune, array('placeholder'=>'Téléphone Portable', 'id' => 'inputIconEx1')) !!}<br/><br/>
+		<br/> {!! Form::text('email',$user->mail_jeune,  array('placeholder'=>'Email', 'id' => 'inputIconEx1')) !!}<br/><br/>
 		{!! Form::submit('valider') !!}
 	{!! Form::close() !!}
 @endsection

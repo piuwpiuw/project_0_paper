@@ -8,19 +8,19 @@ update: 2018/03/14
 fonctionne avec basic-print.css, qui contient l'organisation de base de mes pages.
 */
 /* general */
-body * { color: #820; }
-html { background-color: #820; }
+body * { color: #6b6363; }
+html { background: linear-gradient(#b2e3fe, #e4e9eb); }
 body {
 	max-width: 20cm;
 	min-width: 6cm;
 	min-height: 20cm;
-	background-color: #FC8;
+	background-color: white;
 }
 a { color: #820; }
-img {
+/* img {
 	background-color: #221000;
 	color: #FC8;
-}
+} */
 hr { background-color: #4BB; }
 /* boutons */
 input, button, a.button, textarea {
@@ -28,7 +28,4 @@ input, button, a.button, textarea {
 	padding: 2mm;
 	border-radius: 2mm;
 }
-button, a.button, input[type='button'], input[type='submit'] {
-	color: #FC8;
-	background-color: #820;
-}
+
