@@ -12,7 +12,7 @@
     </div>
         <div class="dashboard__profil-block">
             <h3 class="dashboard__profil-sub">Nom :</h3>
-                <p class="dashboard__profil-text">{{ $user->nom_conseiller}}</p>
+            <p class="dashboard__profil-text">{{ $user->nom_conseiller}}</p>
         </div>
         <div class="dashboard__profil-block">
             <h3 class="dashboard__profil-sub">Prénom :</h3>

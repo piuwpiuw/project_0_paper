@@ -3,6 +3,9 @@
 a {
   text-decoration: none;
 }
+label {
+  margin: 0;
+}
 
 
   .block-dashboard {
@@ -235,7 +238,6 @@ a {
       font-family: roboto;
       letter-spacing: 0.1vw;
       font-size: 1.2vw;
-
     }
   }
 }
@@ -243,4 +245,91 @@ a {
 .flex-container {
   display: flex;
   width: 80vw;
+}
+
+.mine {
+  display: flex;
+  margin: 3vw;
+
+
+  &__list {
+    width: 40%;
+    height: 50vh;
+    overflow-y: scroll;
+    background-color: #fff;
+    border: 1px solid #f1f1f1;
+    border-radius: 3px;
+    padding: 1vw;
+    font-size: 1vw;
+    margin-right: 6vw;
+
+    &::-webkit-scrollbar { 
+      display: block; 
+    }
+  
+    &::-webkit-scrollbar
+    {
+      width: 12px;  /* for vertical scrollbars */
+      height: 12px; /* for horizontal scrollbars */
+    }
+  
+    &::-webkit-scrollbar-track
+    {
+      background: rgba(0, 0, 0, 0);
+    }
+  
+    &::-webkit-scrollbar-thumb
+    {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    &-item {
+      padding: 1vh;
+      border-bottom: 1px solid #e2e2e2;
+      color: rgb(101, 118, 151);
+
+    }
+  }
+}
+
+.selected {
+  width: 51%;
+  height: 50vh;
+  background-color: #fff;
+  border: 1px solid #f1f1f1;
+
+
+  &__title {
+    @extend .upper-text;
+
+    background-color: rgb(101, 118, 151);
+    padding: 1vw 0;
+    color: #ffffff;
+    text-align: center;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    &-content {
+
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-flow: row wrap;
+    padding-top: 1vw;
+    padding-left: 1vw;
+
+  }
+
+  &__fields {
+    width: 40%;
+    padding: 1vw;
+    font-size: 1vw;
+    color: #939CB9;
+
+    &-label {
+      color: rgb(80, 85, 102);
+      margin-bottom: 0.5vw;
+    }
+  }
 }
